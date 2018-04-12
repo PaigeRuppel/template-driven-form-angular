@@ -22,6 +22,7 @@ onSubmit() {
   this.submitted = true;
   this.newSubscription.email = this.form.value.email;
   this.newSubscription.subscriptionLevel = this.form.value.subscriptionLevel;
+  this.form.reset();
 }
 }
 
