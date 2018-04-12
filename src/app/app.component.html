@@ -1,13 +1,13 @@
-<div class="container">
+<div style="margin: 50px" class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form>
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
         <div class="form-group">
-          <label for="email"></label>
-          <input type="text" id="email" class="form-control" ngModel name="email" required emails>
+          <label for="email">Email: </label>
+          <input type="email" id="email" class="form-control" ngModel name="email" required email #email="ngModel">
         </div>
         <div class="form-group">
-            <label for="subscriptionType">Choose your Subscription:</label>
+            <label for="subscriptionType">Choose your Subscription: </label>
             <select id="subscriptionType" class="form-control" [ngModel]="defaultSubscription" name="subscriptionType">
               <option value="Basic">Basic</option>
               <option value="Advanced">Advanced</option>
@@ -15,9 +15,10 @@
             </select>
           </div>
         <div class="form-group">
-            <label for="password"></label>
-            <input type="text" id="password" class="form-control" ngModel name="password" required>
-          </div>
+            <label for="password">Password: </label>
+            <input type="text" id="password" class="form-control" ngModel required name="password">
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
       </form>
       <!-- Add a Form with the following Inputs (and Validators)
            1) Mail address (should not be empty and should be an email address)
